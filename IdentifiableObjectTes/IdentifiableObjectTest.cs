@@ -1,7 +1,7 @@
 using System;
 using NUnit.Framework;
 
-namespace SwinAdventure
+namespace IdentifiableObject
 {
     [TestFixture]
     public class IdentifiableObjectTest

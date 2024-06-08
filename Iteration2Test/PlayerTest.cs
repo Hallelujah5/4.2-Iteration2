@@ -10,15 +10,19 @@ namespace IdentifiableObject
 {
     public class PlayerTests
     {
-        Player player = new Player("Phuc", "main protagonist");
-        Item herb = new Item(new string[] {"herb"}, "Medicine herb", "A herb material used for medicine.");
-        Item potion = new Item(new string[] {"potion"}, "Healing potion", "Potion of Healing.");
-        Item scrap = new Item(new string[] {"scrap"}, "Metal scrap", "A piece of scrap, can be salvaged." );
+        Player player;
+        Item herb ;
+        Item potion;
+        Item scrap;
 
 
         [SetUp]
         public void Setup()
         {
+            player = new Player("Phuc", "main protagonist");
+            herb = new Item(new string[] { "herb" }, "Medicine herb", "A herb material used for medicine.");
+            potion = new Item(new string[] { "potion" }, "Healing potion", "Potion of Healing.");
+            scrap = new Item(new string[] { "scrap" }, "Metal scrap", "A piece of scrap, can be salvaged.");
         }
 
         [Test]

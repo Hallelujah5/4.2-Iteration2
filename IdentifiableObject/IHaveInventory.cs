@@ -6,9 +6,11 @@ using System.Threading.Tasks;
 
 namespace IdentifiableObject
 {
-    public class Item : Game_Object
+    public interface IHaveInventory 
     {
-        public Item(string[] idents, string name, string desc) : base(idents, name, desc) { }
-        
+        public Game_Object Locate(string id);
+
+        public string Name { get; }
+
     }
 }

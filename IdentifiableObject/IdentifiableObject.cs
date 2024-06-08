@@ -24,7 +24,7 @@ namespace IdentifiableObject
         //Methods
         public bool AreYou(string id)
         {
-            return _identifiers.Contains(id.ToLower());
+            return _identifiers.Contains(id.ToLower()); 
         }
 
         public void AddIdentifier(string id)

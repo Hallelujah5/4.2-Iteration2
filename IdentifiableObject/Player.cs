@@ -6,25 +6,35 @@ using System.Threading.Tasks;
 
 namespace IdentifiableObject
 {
-    public class Player : Game_Object
+    public class Player : Game_Object, IHaveInventory
     {
 
         private Inventory _inventory;
-
+        Location _location;
         public Player(string name, string desc) : base(new string[] { "me", "inventory" }, name, desc)
         {
             _inventory = new Inventory();
         }
 
 
-        public Game_Object Locate(string id)
-        {
-            if (AreYou(id))
-            {
-                return this;
-            }
-            return _inventory.Fetch(id);
-        }
+public Game_Object Locate(string id)
+{
+    if (AreYou(id))
+    {
+        return this;
+    }
+    var item = _inventory.Fetch(id);
+    if (item != null)
+    {
+        return item;
+    }
+    if (_location != null)
+    {
+        return _location.Locate(id);
+    }
+    return null;
+}
+
         
         public override string FullDescription 
         {
@@ -35,7 +45,11 @@ namespace IdentifiableObject
         public Inventory Inventory { get { return _inventory; } }
 
 
-
+        public Location Location    
+        {
+            get { return _location; }
+            set {  _location = value; }
+        }
 
 
 
